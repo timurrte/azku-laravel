@@ -19,7 +19,12 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->prefix('posts')->name('posts.')->namespace('App\Http\Controllers\Posts')->group(function () {
     Route::get('/', 'IndexController')->name('index');
+    Route::get('/create', 'CreateController')->name('create');
+    Route::post('/', 'StoreController')->name("store");
+    Route::get('/{post}', 'UpdateController')->name('update');
+
     Route::get('/{post}', 'ShowController')->name('show');
+    
 });
 
 Route::middleware([AdminPanelMiddleware::class])->name('admin.')->prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function () {

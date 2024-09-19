@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +23,7 @@ class PostFactory extends Factory
             'content' => fake()->text(),
             'image' => fake()->imageUrl(),
             'likes' => fake()->numberBetween(0, 1000),
+            'category_id' => Category::get()->random()->id,
         ];
     }
 }
