@@ -11,7 +11,7 @@ class UpdatePostRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,9 @@ class UpdatePostRequest extends FormRequest
             'title' => 'required|string',
             'content'=>'required|string',
             'image' => 'nullable|string',
-            'author' => 'nullable|string'
+            'author' => 'nullable|string',
+            'category_d' => 'numeric',
+            'tags' => ''
         ];
     }
 }

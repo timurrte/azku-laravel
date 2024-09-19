@@ -21,7 +21,11 @@ Route::middleware('auth')->prefix('posts')->name('posts.')->namespace('App\Http\
     Route::get('/', 'IndexController')->name('index');
     Route::get('/create', 'CreateController')->name('create');
     Route::post('/', 'StoreController')->name("store");
-    Route::get('/{post}', 'UpdateController')->name('update');
+
+    Route::get('/{post}/edit', 'EditController')->name('edit');
+    Route::patch('/{post}', 'UpdateController')->name('update');
+
+    Route::delete('/{post}', 'DeleteController')->name('delete');
 
     Route::get('/{post}', 'ShowController')->name('show');
     

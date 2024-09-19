@@ -11,5 +11,7 @@ class UpdateController extends Controller
     public function __invoke(UpdatePostRequest $request, Post $post) {
         $data = $request->validated();
         $post->update($data);
+
+        return redirect(route("posts.index"));
     }
 }
