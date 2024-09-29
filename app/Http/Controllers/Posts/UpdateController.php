@@ -10,8 +10,10 @@ class UpdateController extends Controller
 {
     public function __invoke(UpdatePostRequest $request, Post $post) {
         $data = $request->validated();
+        $tags = $data['tags'] ?? [];
+        unset($data['tags']);
+        $post->tags()->sync($tags);
         $post->update($data);
-
         return redirect(route("posts.index"));
     }
 }

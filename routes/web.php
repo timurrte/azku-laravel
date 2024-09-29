@@ -25,7 +25,7 @@ Route::middleware('auth')->prefix('posts')->name('posts.')->namespace('App\Http\
     Route::get('/{post}/edit', 'EditController')->name('edit');
     Route::patch('/{post}', 'UpdateController')->name('update');
 
-    Route::delete('/{post}', 'DeleteController')->name('delete');
+    Route::delete('/{post}', 'DeleteController')->name('destroy');
 
     Route::get('/{post}', 'ShowController')->name('show');
     
